@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Place Order";
+}
+
+<h2>Place New Order</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Customer Name</label>
+        <input type="text" name="customerName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input type="text" name="productName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input type="number" name="quantity" class="form-control" value="1" min="1" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit Order</button>
+</form>
+
+<br />
+<a asp-action="Index" class="btn btn-secondary">View Queue Messages</a>

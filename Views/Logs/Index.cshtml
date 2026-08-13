@@ -1,0 +1,25 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Log Files";
+}
+
+<h2>Log Files in Azure Files</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Write New Log</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group">
+        @foreach (var file in Model)
+        {
+            <li class="list-group-item">@file</li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-muted">No log files found yet.</p>
+}
