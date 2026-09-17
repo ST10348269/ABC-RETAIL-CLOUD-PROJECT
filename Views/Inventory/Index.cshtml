@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Inventory Management";
+}
+
+<h2>Inventory Management</h2>
+<p class="text-muted">Send inventory processing messages to Azure Queue Storage.</p>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<form method="post" class="mt-4" style="max-width: 500px;">
+    <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input type="text" name="productName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input type="number" name="quantity" class="form-control" min="1" value="1" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Action</label>
+        <select name="action" class="form-select" required>
+            <option value="Restock inventory">Restock inventory</option>
+            <option value="Reduce stock">Reduce stock</option>
+            <option value="Update inventory">Update inventory</option>
+            <option value="Low stock alert">Low stock alert</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Send Inventory Message</button>
+    <a asp-controller="Orders" asp-action="Index" class="btn btn-secondary">View Queue Messages</a>
+</form>

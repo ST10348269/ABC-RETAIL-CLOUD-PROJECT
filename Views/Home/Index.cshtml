@@ -1,44 +1,60 @@
 ﻿@{
-    ViewData["Title"] = "Welcome";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center py-5">
-    <h1 class="display-4 fw-bold mb-3" style="color:#0f172a;">
-        Welcome to ABC Retail
-    </h1>
-    <p class="lead text-muted mb-4" style="max-width: 600px; margin: 0 auto;">
-        Your modern cloud-powered retail platform.
-        Manage customers, products, orders and logs : all running on Microsoft Azure.
+<div class="py-4">
+    <h1 class="fw-bold mb-2">ABC Retail Management</h1>
+    <p class="text-muted mb-4">
+        Internal system for managing customers, products, orders, inventory and system logs.
     </p>
 
-    <div class="row justify-content-center mt-5 g-4">
-        <div class="col-md-3">
-            <div class="card p-4 h-100">
-                <h5 class="fw-semibold">Customers</h5>
-                <p class="text-muted small mb-0">Store and manage customer profiles using Azure Tables</p>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h5>Customers</h5>
+                <p class="text-muted small">View and manage customer profiles stored in Azure Tables.</p>
+                <a asp-controller="Customers" asp-action="Index" class="btn btn-sm btn-dark">Open Customers</a>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card p-4 h-100">
-                <h5 class="fw-semibold">Products</h5>
-                <p class="text-muted small mb-0">Product catalog with images hosted on Azure Blob Storage</p>
+
+        <div class="col-md-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h5>Products</h5>
+                <p class="text-muted small">Manage product information and images stored in Azure Blob Storage.</p>
+                <a asp-controller="Products" asp-action="Index" class="btn btn-sm btn-dark">Open Products</a>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card p-4 h-100">
-                <h5 class="fw-semibold">Orders</h5>
-                <p class="text-muted small mb-0">Reliable order processing powered by Azure Queues</p>
+
+        <div class="col-md-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h5>Orders</h5>
+                <p class="text-muted small">Place orders and monitor messages in the Azure Queue.</p>
+                <a asp-controller="Orders" asp-action="Create" class="btn btn-sm btn-dark">Place Order</a>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card p-4 h-100">
-                <h5 class="fw-semibold">Logs</h5>
-                <p class="text-muted small mb-0">Application logs securely stored in Azure Files</p>
+
+        <div class="col-md-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h5>Inventory</h5>
+                <p class="text-muted small">Send inventory updates and stock messages to Azure Queue Storage.</p>
+                <a asp-controller="Inventory" asp-action="Index" class="btn btn-sm btn-dark">Manage Inventory</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h5>Order Queue</h5>
+                <p class="text-muted small">View order and inventory messages currently in the queue.</p>
+                <a asp-controller="Orders" asp-action="Index" class="btn btn-sm btn-dark">View Queue</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-4 h-100 shadow-sm">
+                <h5>System Logs</h5>
+                <p class="text-muted small">Write and view application logs stored in Azure Files.</p>
+                <a asp-controller="Logs" asp-action="Index" class="btn btn-sm btn-dark">View Logs</a>
             </div>
         </div>
     </div>
-
-    <p class="mt-5 text-muted">
-        Use the menu above to explore the different sections of the system.
-    </p>
 </div>
